@@ -2,7 +2,9 @@ import React from 'react'
 
 function LandinPage() {
   return (
-    <div>LandinPage</div>
+    <div className="landing-page-container">
+      LandinPage
+    </div>
   )
 }
 

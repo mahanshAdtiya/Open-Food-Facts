@@ -1,13 +1,13 @@
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose')
-const session = require('express-session')
+import dotenv from "dotenv";
 
-const app = express();
+dotenv.config();
+
+import { app } from "./index.js";
+
 const PORT = process.env.PORT || 8080;
 
 app.get('/', (rew,res) =>{
-    res.send("Hello World")
+    res.send("Open Food Facts Server Running")
 })
 
 app.listen(PORT, (req, res) => {
