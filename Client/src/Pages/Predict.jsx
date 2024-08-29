@@ -27,10 +27,10 @@ function Predict() {
 
   useEffect(() => {
 
-    if (nutrientLevel == "12Nutrients") {
+    if (nutrientLevel == "7Nutrients") {
       setDummyData(test12Data);
     } 
-    else if (nutrientLevel == "65Nutrients") {
+    else if (nutrientLevel == "8Nutrients") {
       setDummyData(test65Data);
     } 
     else setDummyData(test102Data);
@@ -38,7 +38,7 @@ function Predict() {
   }, [nutrientLevel]);
 
   useEffect(() => {
-    console.log(dummyData);
+    // console.log(dummyData);
     setNutritionInfo(dummyData[0]);
   }, [dummyData]);
 
@@ -49,17 +49,22 @@ function Predict() {
   const onPredict = (val) => {
     setOpen(true);
     setLoading(true);
-    let url = "https://cosylab.iiitd.edu.in/food-processing-api/predict";
-    if (nutrientLevel == "12Nutrients") {
-      url = "https://cosylab.iiitd.edu.in/food-processing-api/predict";
-    } else if (nutrientLevel == "65Nutrients") {
-      url =
-        "https://cosylab.iiitd.edu.in/food-processing-api/predictwithextranutrients";
-    } else
-      url =
-        "https://cosylab.iiitd.edu.in/food-processing-api/predictwithmicronutrients";
+    let nutrient = "";
+    let url = "http://localhost:8000/api/v1/predict/predict-class"
+    if (nutrientLevel == "7Nutrients")
+      nutrient = "7";
+    else if (nutrientLevel == "8Nutrients")
+      nutrient = "8";
+    else
+      nutrient = "45";
+    
+    const data = {
+      nutrientLevel: nutrient, 
+      modelInputData: Object.values(val).map(Number)  
+    };
+    
     axios
-      .post(url, [val])
+      .post(url, {data})
       .then((res) => {
         setLoading(false);
         let temp = "";
@@ -79,10 +84,10 @@ function Predict() {
       });
   };
 
-  useEffect(() => {
-    if (nutrientData?.[nutrientLevel]?.[0])
-      console.log("WTF",Object.keys(nutrientData?.[nutrientLevel]?.[0])?.[0]);
-  }, [nutrientLevel]);
+  // useEffect(() => {
+  //   if (nutrientData?.[nutrientLevel]?.[0])
+  //     console.log("WTF",Object.keys(nutrientData?.[nutrientLevel]?.[0])?.[0]);
+  // }, [nutrientLevel]);
 
   return (
     <Container maxWidth="lg">
