@@ -1,47 +1,41 @@
-footer {
-    margin: 2rem 0;
-    padding: 20px 0;
-    background-color: #776E9A;
-    color: #ffff;
-    font-size: 14px;
-
+ footer {
+  padding: 20px 0;
+  background-color: #776E9A;
+  color: #ffff;
+  font-size: 14px;
+  text-align: center;
+  .__institute_details {
+    display: flex;
+    flex-wrap: wrap;
+    display: inline;
+  }
+  .__social_media {
+    margin-top: 22px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    text-align: center;
-    .__institute_details {
-      display: flex;
-      flex-wrap: wrap;
-      display: inline;
-    }
-    .__social_media {
-      margin-top: 22px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    color: ffff;
+    font-size: 30px;
+    gap: 24px;
+    a{
       color: #ffff;
-      font-size: 30px;
-      gap: 24px;
-      a{
+      :hover{
         color: #ffff;
-        :hover{
-          color: #ffff;
-          padding-bottom: 6px;
-          border-bottom: 1px solid #ffff;
-        }
+        padding-bottom: 6px;
+        border-bottom: 1px solid #ffff;
       }
     }
-  
   }
-  
-  footer a {
-    text-decoration: none;
-    color: #ffff;
-  }
-  
-  footer a:hover {
-    cursor: pointer;
-    text-decoration: none;
-    color: #ffff;
-  }
-  
+
+}
+
+a{
+  text-decoration: none;
+  color: #ffff;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #cbbeff;
+}

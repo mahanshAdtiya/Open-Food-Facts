@@ -1,11 +1,12 @@
 import React from "react";
 
-import { FaFacebook, FaWikipediaW, FaLinkedin, FaGithub, FaInstagram, FaTwitter, FaGooglePlus,} from "react-icons/fa";
+import { Container } from "@mui/material";
+import {FaFacebook, FaWikipediaW, FaLinkedin, FaGithub, FaInstagram, FaTwitter, FaGooglePlus} from "react-icons/fa";
 
 function Footer() {
   return (
     <footer>
-      <div>
+      <Container maxWidth="lg">
         <img
           width="80"
           alt=""
@@ -74,7 +75,7 @@ function Footer() {
           </a>
         </div>
         
-      </div>
+      </Container>
     </footer>
   );
 }

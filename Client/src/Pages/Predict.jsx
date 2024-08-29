@@ -100,9 +100,9 @@ function Predict() {
                     label="Select Nutrient Level"
                     onChange={handleChangeSelect}
                   >
-                    <MenuItem value={"12Nutrients"}>13 Nutrients</MenuItem>
-                    <MenuItem value={"65Nutrients"}>65 Nutrients</MenuItem>
-                    <MenuItem value={"102Nutrients"}>102 Nutrients</MenuItem>
+                    <MenuItem value={"7Nutrients"}>7 Nutrients</MenuItem>
+                    <MenuItem value={"8Nutrients"}>8 Nutrients</MenuItem>
+                    <MenuItem value={"45Nutrients"}>45 Nutrients</MenuItem>
                   </Select>
                 </FormControl>
               </div>
@@ -123,46 +123,37 @@ function Predict() {
           <>
             {Object.keys(nutrientData?.[nutrientLevel]).map((ty, ind) => {
               return (
-                <span>
-                  <h2 style={{ textAlign: "left" }} >
+                <span key={ind}>  
+                  <h2 style={{ textAlign: "left" }}>
                     {formatTitle(Object.keys(nutrientData?.[nutrientLevel]?.[ty])?.[0])}
                   </h2>
                   <div className="form__wrapper">
                     {Object.values(nutrientData?.[nutrientLevel]?.[ty])?.[0]?.map(
                       (column, index) => {
+                        const uniqueId = `${column}-${index}`;
                         return (
-                          <div className="form__content">
-                            <InputLabel htmlFor="input-protein">
-                              {column}
-                            </InputLabel>
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "20px"
-                              }}
-                            >
+                          <div className="form__content" key={index}>  
+                            <InputLabel htmlFor={uniqueId}>{column}</InputLabel>
+                            <div style={{display: "flex", alignItems: "center", gap: "20px" }}>
                               <span style={{ width: "70%" }}>
-                                <Slider
-                                  color={
-                                    ind == 0
-                                      ? "primary"
-                                      : ind == 1
-                                      ? "warning"
-                                      : "secondary"
-                                  }
-                                  min={meanMedian?.[nutrientLevel]?.[column]?.min}
-                                  max={meanMedian?.[nutrientLevel]?.[column]?.max}
-                                  value={nutritionInfo?.[column]}
-                                  onChange={(e) => {
-                                    setNutritionInfo((nutritionInfo) => ({
-                                      ...nutritionInfo,
-                                      [column]: e.target.value
-                                    }));
-                                  }}
-                                  aria-label="Default"
-                                  valueLabelDisplay="auto"
-                                />
+                              <Slider
+                                id={uniqueId}
+                                color={
+                                  ind === 0 ? "primary" : ind === 1 ? "warning" : "secondary"
+                                }
+                                min={meanMedian?.[nutrientLevel]?.[column]?.min || 0}
+                                max={meanMedian?.[nutrientLevel]?.[column]?.max || 100}
+                                value={Number(nutritionInfo?.[column]) || 0}  
+                                onChange={(e) => {
+                                  setNutritionInfo((nutritionInfo) => ({
+                                    ...nutritionInfo,
+                                    [column]: Number(e.target.value),
+                                  }));
+                                }}
+                                aria-label="Default"
+                                valueLabelDisplay="auto"
+                              />
+
                               </span>
                               <span style={{ width: "30%" }}>
                                 <TextField

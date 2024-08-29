@@ -1,5 +1,5 @@
 const nutrientData = {
-    "12Nutrients": [
+    "7Nutrients": [
       {
         nutritionDetails: [
           "Protein",
@@ -18,7 +18,7 @@ const nutrientData = {
         ]
       }
     ],
-    "65Nutrients": [
+    "8Nutrients": [
       {
         microNutrients: [
           "Protein",
@@ -94,7 +94,7 @@ const nutrientData = {
         ]
       }
     ],
-    "102Nutrients": [
+    "45Nutrients": [
       {
         microNutrients: [
           "Protein",
@@ -214,7 +214,7 @@ const nutrientData = {
 };
 
 const meanMedian = {
-  "12Nutrients": {
+  "7Nutrients": {
     Protein: {
       min: 0.0,
       max: 62.88,
@@ -320,7 +320,7 @@ const meanMedian = {
       unit: "kcal"
     }
   },
-  "65Nutrients": {
+  "6Nutrients": {
     Protein: {
       min: 0.0,
       max: 62.88,
@@ -850,7 +850,7 @@ const meanMedian = {
       unit: "g"
     }
   },
-  "102Nutrients": {
+  "45Nutrients": {
     Protein: {
       min: 0.0,
       max: 62.88,

@@ -50,6 +50,7 @@
     .form__wrapper {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       padding-bottom: 20px;
       gap: 40px 80px;
       .form__row {
@@ -91,3 +92,15 @@
     }
   }
   
+
+  @media screen and (max-width: 900px) {
+    .navigation {  
+      .__wrapper {  
+       .__logo {
+          img {
+            width: 50px;
+          }
+        }
+      }
+    }
+  }

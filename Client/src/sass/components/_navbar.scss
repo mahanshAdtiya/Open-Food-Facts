@@ -1,37 +1,94 @@
-.navbar-wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
+.navigation {
     background-color: #776E9A;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-    .container{
+    display: flex;
+    width: 100%;
+  
+    .__wrapper {
+      display: flex;
+      justify-content: space-between;
+  
+     .__logo {
+        justify-content: left;
         display: flex;
+        flex: 0 1;
+        min-width: 240px;
         align-items: center;
-        justify-content: space-between;
-        width: 70%;
-        .left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            .logo {
-                height: 50px;
-            }
+  
+        img {
+          padding: 0 10px 0 0;
+          width: 80px;
+          height: max-content;
+          align-items: center;
+          margin: 0;
         }
-    
-        .right {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        
-            a,li {
-                list-style: none;  
-                text-decoration: none;  
-                color: #ffff;
-                font-size: 16px;
-                font-weight: 300; 
-            }
+      }
+  
+      .nav {
+        color: #fff;
+        display: flex;
+        list-style-type: none;
+        align-items: center;
+        justify-content: flex-end;
+        overflow: hidden;
+  
+        .__nav0 {
+          color: #fff;
+          display: flex;
+          align-items: center;
+
+          a{
+            color: #fff;
+          }
+  
+          li {
+            white-space: nowrap;
+          }
         }
+      }
     }
+  }
+
+.mob-nav-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+
+  .mobileNav{
+    background-color: #776E9A;
+    border: 1px solid #776E9A;
+    border-radius: 10px;
+      .navMob{
+
+        .__nav0{
+          margin: 0;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          li,a{
+            list-style-type: none;
+            text-decoration: none;
+            color: #fff;
+          }
+        }
+      }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .navigation {  
+    .__wrapper {  
+     .__logo {
+        img {
+          width: 50px;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 900px) {
+  .mob-nav-wrapper{
+    display: none;
+  }
 }
